@@ -1,0 +1,82 @@
+@font-face{
+    font-family:"font1";
+    src: url("images/font/font1.ttf") format("truetype");
+}
+
+.lyrics-item {
+    height: auto;
+    width: 100%;
+    display: table;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.lyrics-item .row {
+    margin-bottom: 0.75rem;
+}
+button.function-btn {
+    max-height: 1.2rem;
+    padding: 0 0.5rem;
+    text-align: center;
+    font-family: 'Noto Sans TC';
+    font-size: 0.75rem;
+    vertical-align: top;
+}
+
+.lyrics-item .chord-edit {
+    height: 1.2rem;
+    position: relative;
+    font-size: 0.75rem;
+}
+.lyrics-item .chord-mark-icon{
+    min-width: 2rem;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+}
+.chord-mark-icon i {
+    width: 0.75rem;
+    height: 0.75rem;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+    cursor: pointer;
+}
+.chord-mark-icon:hover i {
+    display: block;
+}
+.lyrics-item .chord-mark {
+    min-height: 80%;
+    max-height: 100%;
+    width: 2rem;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+}
+
+.lyrics-item  .chord-selector {
+    display: none;
+    position: absolute;
+    top: 110%;
+    z-index: 1;
+}
+
+.lyrics-item textarea{
+    overflow-y: hidden;
+    resize: none;
+    outline: none;
+    border: 1px solid;
+    border-top: none;
+    border-bottom: none;
+}
+.lyrics-item textarea:disabled{
+    background-color: white;
+    color: black;
+}
+.lyrics-item:first-of-type textarea{
+    border-top: 1px solid;
+}
+.lyrics-item:last-of-type textarea{
+    border-bottom: 1px solid;
+}
+

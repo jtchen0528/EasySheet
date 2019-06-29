@@ -1,0 +1,31 @@
+@font-face{
+    font-family:"font1";
+    src: url("images/font/font1.ttf") format("truetype");
+}
+
+.chord-editor, .chord-editor textarea, .chord-editor input, .chord-editor button, .chord-editor a {
+    font-family: 'Noto Sans TC', �L�n������, Verdana, sans-serif;
+}
+.chord-editor-title {
+    font-weight: 700;
+}
+.chord-editor div[class*=col] {
+    padding-left: 0;
+    padding-right: 0;
+}
+#toPrint {
+    padding-top: 15px;
+}
+#toPrint div[class*=row]{
+    margin-left: 0;
+    margin-right: 0;
+}
+#test{
+    color: #000000a8;
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
