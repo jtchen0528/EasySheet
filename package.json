@@ -13,7 +13,7 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "axios": "^0.15.3",
+        "axios": "^0.21.1",
         "bootstrap": "^4.0.0-alpha.6",
         "chinese-conv": "^1.0.1",
         "prop-types": "^15.5.4",
