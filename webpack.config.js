@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const srcPath = path.resolve(__dirname, 'src');
 const distPath = path.resolve(__dirname, 'dist');
@@ -60,7 +61,14 @@ module.exports = {
             }
         ]
     },
-    plugins: [new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js', minChunks: 2})],
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor', filename: 'vendor.bundle.js', minChunks: 2
+        }),
+        new HtmlWebpackPlugin({
+            publicPath: '/EasySheetProject/',
+        }),
+    ],
     devServer: {
         contentBase: distPath,
         compress: true,
