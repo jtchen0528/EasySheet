@@ -19,7 +19,8 @@ module.exports = {
     },
     output: {
         path: distPath,
-        filename: '[name].bundle.js'
+        filename: '[name].bundle.js',
+        publicPath: '/EasySheetProject/',
     },
     module: {
         rules: [
@@ -65,5 +66,5 @@ module.exports = {
         compress: true,
         port: 8080
     },
-    devtool: 'cheap-source-map'
+    devtool: 'cheap-source-map',
 };
