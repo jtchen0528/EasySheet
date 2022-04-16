@@ -29,6 +29,7 @@ export default class LyricsItem extends React.Component {
         nextflag: PropTypes.number,
         chordAdd: PropTypes.func,
         chordRemove: PropTypes.func,
+        chordRemoveMultiple: PropTypes.func,
     };
 
     constructor(props) {
@@ -366,14 +367,16 @@ export default class LyricsItem extends React.Component {
 
     handleChordDelete(e) {
         // 更新ChordEditor中的各chord數量紀錄
+        var removedCords = []
         this.state.chordMarkList.forEach(oldChord => {
-            this.props.chordRemove(oldChord.chordName);
+            removedCords.push(oldChord.chordName)
         });
+        this.props.chordRemoveMultiple(removedCords);
+
         this.setState({ chordMarkList: new Array()    });
     }
 
     handleRemoveChordMark(e, _idx, chordName) {
-        
         this.state.chordMarkList.splice(_idx, 1);
         this.setState({});
         this.props.chordRemove(chordName);

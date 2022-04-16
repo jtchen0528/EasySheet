@@ -116,6 +116,7 @@ export default class ChordEditor extends React.Component {
         this.handleCopyChange = this.handleCopyChange.bind(this);
         this.handleChordAdd = this.handleChordAdd.bind(this);
         this.handleChordRemove = this.handleChordRemove.bind(this);
+        this.handleChordRemoveMultiple = this.handleChordRemoveMultiple.bind(this);
         this.handleRenderRhythm = this.handleRenderRhythm.bind(this);
         // 檢查和弦是否已經出現在右側欄位中
         this.chordhasSelected = this.chordhasSelected.bind(this);
@@ -166,6 +167,7 @@ export default class ChordEditor extends React.Component {
                     editLyricsItem={this.editLyricsItem}
                     chordAdd={this.handleChordAdd}
                     chordRemove={this.handleChordRemove}
+                    chordRemoveMultiple={this.handleChordRemoveMultiple}
                     lyrics={lyricsItem[i]}
                     id={i}
                     font={font}
@@ -583,17 +585,18 @@ export default class ChordEditor extends React.Component {
                 break;
             }
         }
+
+        console.log(this.state.chordBlockContent)
+
         return hasExisted;
     }
 
     // 若 LyricsItem 移除chord
     handleChordRemove(chord) {
-
         var hasSelected = this.state.userSelectChord;
         if (hasSelected.length) {
             var i = this.chordhasSelected(chord);
-            console.log(i, hasSelected[i])
-            if ( i >= 0) {
+            if (i >= 0) {
                 // 若從畫面中消失，把這個chord從userSelectChord移除
                 if (!--hasSelected[i].times) {
                     this.setState({
@@ -601,13 +604,35 @@ export default class ChordEditor extends React.Component {
                             return idx !== i;
                         }),
                         chordBlockContent: this.state.chordBlockContent.map((block) => {
-                            console.log(block.val, chord);
                             return (block.val !== chord) ? block : { type: 'chord', val: '' };
                         })
                     });
                 }
                 return;
             }
+        }
+    }
+
+    handleChordRemoveMultiple(chords) {
+        var hasSelected = this.state.userSelectChord;
+        var currentChordBlockContent = this.state.chordBlockContent
+        if (hasSelected.length) {
+            for (var j = 0; j < chords.length; j++){
+                var i = this.chordhasSelected(chords[j]);
+                if (i >= 0) {
+                    --hasSelected[i].times;
+                    if (hasSelected[i].times == 0) {
+                        for (var k = 0; k < currentChordBlockContent.length; k++){
+                            if (currentChordBlockContent[k].val == chords[j]) currentChordBlockContent[k] = { type: 'chord', val: '' }
+                        }
+                        hasSelected.splice(i, 1)
+                    }
+                }
+            }
+            this.setState({
+                userSelectChord: hasSelected,
+                chordBlockContent: currentChordBlockContent  
+            })
         }
     }
 

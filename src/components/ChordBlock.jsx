@@ -346,7 +346,7 @@ export default class LyricsItem extends React.Component {
     }
 
     handleChordSelectionDisplay(e) {
-        if (this.state.type === 'text' || this.state.type === 'image' || this.props.stage === 'prePrint' || this.props.stage === 'print') {
+        if (this.state.type === 'text' || this.state.type === 'image' || this.props.stage === 'prePrint' || this.props.stage === 'print' || this.props.stage === 'chord') {
             this.setState({
                 chordSelectionDisplay: false
             });
@@ -396,7 +396,6 @@ export default class LyricsItem extends React.Component {
         });
     }
     handleNavbarToggle() {
-        
         if (this.props.stage === 'prePrint' || this.props.stage === 'print' || this.props.stage === 'chord') {
             this.setState({
                 tagSelectionDisplay: false
