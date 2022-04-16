@@ -29,7 +29,7 @@ export default class SharePreview extends React.Component {
         super(props);
 
         this.ChordTable = {
-            '自訂': [0, 0, 0, 0, 0, 0],
+            'custom': [0, 0, 0, 0, 0, 0],
             C: [0, 3, 2, 0, 1, 0],
             Cmaj7: [0, 3, 2, 0, 0, 0],
             C7: [0, 3, 2, 3, 1, 0],
@@ -566,7 +566,7 @@ export default class SharePreview extends React.Component {
     handleChordAdd(chord, selectedByUser = -1, clbk) {
 
         // 如果使用者要自訂chord，將其callback存入
-        if (chord === '自訂') {
+        if (chord === 'custom') {
             if (this.state.chordCreatorDisplay) {
                 console.error('unfinished chord edit exists. Please close it and try again.');
             } else {
@@ -633,12 +633,15 @@ export default class SharePreview extends React.Component {
             var i = this.chordhasSelected(chord);
             if ( i >= 0) {
                 // 若從畫面中消失，把這個chord從userSelectChord移除
+                console.log(hasSelected)
                 if (!--hasSelected[i].times) {
                     this.setState({
                         userSelectChord: this.state.userSelectChord.filter((select, idx) => {
                             return idx !== i;
                         })
                     });
+                    console.log(hasSelected)
+
                 }
                 return;
             }

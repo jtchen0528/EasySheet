@@ -37,7 +37,7 @@ export default class ChordEditor extends React.Component {
         super(props);
 
         this.ChordTable = {
-            '自訂': [0, 0, 0, 0, 0, 0],
+            'custom': [0, 0, 0, 0, 0, 0],
             C: [0, 3, 2, 0, 1, 0],
             Cmaj7: [0, 3, 2, 0, 0, 0],
             C7: [0, 3, 2, 3, 1, 0],
@@ -522,7 +522,7 @@ export default class ChordEditor extends React.Component {
     handleChordAdd(chord, selectedByUser = -1, clbk) {
 
         // 如果使用者要自訂chord，將其callback存入
-        if (chord === '自訂') {
+        if (chord === 'custom') {
             if (this.state.chordCreatorDisplay) {
                 this.errorMessage = 'unfinished chord edit exists. Please close it and try again.';
                 this.setState({ showError: true })
@@ -591,8 +591,8 @@ export default class ChordEditor extends React.Component {
 
         var hasSelected = this.state.userSelectChord;
         if (hasSelected.length) {
-
             var i = this.chordhasSelected(chord);
+            console.log(i, hasSelected[i])
             if ( i >= 0) {
                 // 若從畫面中消失，把這個chord從userSelectChord移除
                 if (!--hasSelected[i].times) {
@@ -601,6 +601,7 @@ export default class ChordEditor extends React.Component {
                             return idx !== i;
                         }),
                         chordBlockContent: this.state.chordBlockContent.map((block) => {
+                            console.log(block.val, chord);
                             return (block.val !== chord) ? block : { type: 'chord', val: '' };
                         })
                     });

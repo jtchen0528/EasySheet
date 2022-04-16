@@ -117,22 +117,22 @@ export default class Today extends React.Component {
             <div>
                 <div className={`today welcome ${this.state.stage}`}>
                     <div className={`today welcometext`}>
-                        <p>Welcome to EasySheet！<br/> A simple editor for guitar chords and lyrics.</p>
+                        <p>歡迎來到EasySheet！<br/>今天想為哪首歌寫譜呢？</p>
                     </div>
                     <div className={`today startbutton`}>
-                        <Button color="success" size="lg" onClick={this.handleStart} > Start chording! </Button>
+                        <Button color="success" size="lg" onClick={this.handleStart} > 開始寫譜 </Button>
                         <br/>
                     </div>
                 </div>
                 <div className={`today template ${this.state.stage}`}>
                     <div className={`today choose title`}>
-                        <p>Step 1: Title, Singer, Sheet template, Color, and Font.</p>
+                        <p>Step 1: 輸入歌名、歌手，選擇版型、字型、背景顏色</p>
                     </div>
                     <Container className="form">
                         <Form onSubmit={this.onFormSubmit}>
                         <Row  className={`today choose context`} form>
                             <Col xs="12" lg="6">
-                                <p className="today choose center">Select a template</p>
+                                <p className="today choose center">請選擇版型</p>
                                 <Row>
                                     <Col xs ="4">
                                         <img src="images/templates/template1.jpg" alt="" className="responsive"  onClick={this.handletemplate0Change}/>
@@ -170,27 +170,27 @@ export default class Today extends React.Component {
                             </Col>
                             <Col xs="12"  lg="6" >
                                 <div className="rightchoose">
-                                <p className="today choose center">Song Info</p>
+                                <p className="today choose center">歌曲資料</p>
                                 <FormGroup row>
-                                  <Label for="songname" sm={2} className={`today choose center`}>Title</Label>
+                                  <Label for="songname" sm={2} className={`today choose center`}>歌名</Label>
                                         <Col sm={10}>
-                                            <Input  name="songname" id="songname" placeholder="Title of the song"   getRef={el => {this.inputEl = el}} value={this.state.song} onChange={this.handleSongChange}/>
+                                            <Input  name="songname" id="songname" placeholder="請輸入歌曲名稱"   getRef={el => {this.inputEl = el}} value={this.state.song} onChange={this.handleSongChange}/>
                                         </Col>
                                 </FormGroup>
                                 <FormGroup row>
-                                  <Label for="singer" sm={2} className={`today choose center`}>Singer</Label>
+                                  <Label for="singer" sm={2} className={`today choose center`}>歌手</Label>
                                         <Col sm={10}>
-                                            <Input  name="singer" id="singer" placeholder="Singer or band"   getRef={el => {this.inputEl = el}} value={this.state.singer} onChange={this.handleSingerChange} />
+                                            <Input  name="singer" id="singer" placeholder="請輸入歌手名稱"   getRef={el => {this.inputEl = el}} value={this.state.singer} onChange={this.handleSingerChange} />
                                         </Col>
                                 </FormGroup>
                                 <FormGroup row>
-                                  <Label for="color" sm={2} className={`today choose center`}>Color</Label>
+                                  <Label for="color" sm={2} className={`today choose center`}>顏色</Label>
                                         <Col sm={10}>
-                                            <Input  type="color" name="color" id="singer" placeholder="Color of the music sheet"  getRef={el => {this.inputEl = el}} value={this.state.color} onChange={this.handleColorChange} className={`today choose cursor`}/>
+                                            <Input  type="color" name="color" id="singer" placeholder="請選擇背景顏色"  getRef={el => {this.inputEl = el}} value={this.state.color} onChange={this.handleColorChange} className={`today choose cursor`}/>
                                         </Col>
                                 </FormGroup>
                                 <FormGroup row>
-                                  <Label for="font" sm={2} className={`today choose center`}>Font</Label>
+                                  <Label for="font" sm={2} className={`today choose center`}>字體</Label>
                                         <Col sm={10}>
                                             <Input  type="select" name="font" id="font" defaultValue="正黑體"  getRef={el => {this.inputEl = el}} value={this.state.font} onChange={this.handleFontChange} className={`today choose cursor`}>
                                                 <option>標楷體</option>
@@ -205,20 +205,20 @@ export default class Today extends React.Component {
                         </Form>
                         <Row >
                             <Col xs="5" lg="3" className={`today choose center`}>
-                                <Button color="secondary" size="lg" onClick={this.handleStart}>Back</Button>
+                                <Button color="secondary" size="lg" onClick={this.handleStart}>上一步</Button>
                             </Col>
                             <Col xs="2" lg="6">
                                 {this.state.loading && <Alert color='warning' className='loading'>Loading...</Alert>}
                             </Col>
                             <Col xs="5" lg="3" className={`today choose center`}>
-                                <Button color="success" size="lg" onClick={this.onFormSubmit}>Next</Button>
+                                <Button color="success" size="lg" onClick={this.onFormSubmit}>下一步</Button>
                             </Col>
                         </Row>
                     </Container>
                 </div>
                 <div className={`today edit ${this.state.stage}`}>
                     <div className={`today choose title`}>
-                        <p>Edit the lyrics typesettings</p>
+                        <p>請編輯歌詞</p>
                     </div>
                     <Container className="form">
                     <Row>
@@ -234,12 +234,12 @@ export default class Today extends React.Component {
                     </Row>
                     <Row>
                         <Col  xs="5" lg="3" className={`today choose center`}>
-                            <Button color="secondary" size="lg" onClick={this.handleChordback}>Back</Button>
+                            <Button color="secondary" size="lg" onClick={this.handleChordback}>上一步</Button>
                         </Col>
                         <Col xs="2" lg="6">
                         </Col>
                         <Col  xs="5" lg="3" className={`today startbutton`}>
-                            <Button color="success" size="lg" onClick={this.handleChord}>Start Chording!</Button>
+                            <Button color="success" size="lg" onClick={this.handleChord}>開始抓扣！</Button>
                         </Col>
                     </Row>
                     </Container>
@@ -247,7 +247,7 @@ export default class Today extends React.Component {
 
                 <div className={`${(this.state.stage === 'Instruction1') ? '' : 'd-none'}`}>
                     <div className={`today choose title`}>
-                        <p>Tutorial: Lyrics typesettings</p>
+                        <p>編輯教學：編輯歌詞</p>
                     </div>
                     <Container style={{width:'80%'}}>
                         <div>
@@ -264,25 +264,25 @@ export default class Today extends React.Component {
                         </Row>
                         <Row>
                             <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Press "Enter" at the end of the line will open a new lyric box for the line below. <br/> Each lyric box has a chords row on top.</p>
+                                <p style={{textAlign: 'center', paddingTop:'10px'}}>將欲新增chord的歌詞在句末按下enter隔開。</p>
                             </Col>
                             <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Put lines that has the same melody/chord in the same block in order to save space.</p>
+                                <p style={{textAlign: 'center', paddingTop:'10px'}}>記得把同旋律的主/副歌排在一起，美觀又省空間。</p>
                             </Col>
                             <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Remove the repeated lines to make the music sheet succinct, simple type *2 or *3.</p>
+                                <p style={{textAlign: 'center', paddingTop:'10px'}}>將重複的副歌刪除，節省空間。</p>
                             </Col>
                         </Row>
                         </div>
                     </Container>
                     <div style={{textAlign:'center', paddingTop:'20px'}}>
-                            <Button color="success" size="lg" onClick={this.handleInstruction} > Start Editing </Button>
+                            <Button color="success" size="lg" onClick={this.handleInstruction} > 開始編輯 </Button>
                     </div>
                 </div>
 
                 <div className={`${(this.state.stage === 'Instruction2') ? '' : 'd-none'}`}>
                     <div className={`today choose title`}>
-                        <p>Tutorial: Compose chords.</p>
+                        <p>編輯教學：填選曲調</p>
                     </div>
                     <Container style={{width:'80%'}}>
                         <Row>
@@ -295,7 +295,7 @@ export default class Today extends React.Component {
                                 </Row>
                                 <Row>
                                     <Col>
-                                        <p style={{textAlign: 'center', paddingTop:'10px'}}>Hover on the chord row, press "＋" to add a chord.</p>
+                                        <p style={{textAlign: 'center', paddingTop:'10px'}}>左鍵點擊並選取音調，按法便會出現在右手邊。</p>
                                     </Col>
                                 </Row>
                                 <Row>
@@ -305,7 +305,7 @@ export default class Today extends React.Component {
                                 </Row>
                                 <Row>
                                     <Col>
-                                        <p style={{textAlign: 'center', paddingTop:'10px'}}>Click copy, paste and delete bottoms on the rows to quickly edit the chords.</p>
+                                        <p style={{textAlign: 'center', paddingTop:'10px'}}>複製、貼上及刪除整行音調，讓編輯更快速方便。</p>
                                     </Col>
                                 </Row>
                             </Col>
@@ -315,7 +315,7 @@ export default class Today extends React.Component {
                                     <img src="images/tutorial/6.gif" alt="" className="responsive" style={{maxHeight:'250px'}}/>
                                 </Row>
                                 <Row>
-                                    <p style={{textAlign: 'center', paddingTop:'10px'}}>Click "Add" from the list to add your own chords and fingering patterns.</p>
+                                    <p style={{textAlign: 'center', paddingTop:'10px'}}>自訂曲調，點選按法並儲存。</p>
                                 </Row>
                             </Col>
                             <Col xs='1'></Col>

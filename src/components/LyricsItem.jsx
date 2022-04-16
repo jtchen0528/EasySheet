@@ -110,7 +110,7 @@ export default class LyricsItem extends React.Component {
                             <FormGroup>
                                 <Row className='w-100'>
                                     <Col sm='8'>
-                                        <Input type="select" name="select" id={`chord-select-${id}`} defaultValue="自訂">
+                                        <Input type="select" name="select" id={`chord-select-${id}`} defaultValue="custom">
                                             {optChord}
                                         </Input>
                                     </Col>
@@ -312,7 +312,7 @@ export default class LyricsItem extends React.Component {
         });
 
         // push one chord in chord mark list
-        if (chord !== '自訂') {
+        if (chord !== 'custom') {
             _addChord(chord);
             // pop event to ChordEditor
             this.props.chordAdd(chord);

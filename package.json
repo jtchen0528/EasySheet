@@ -16,15 +16,15 @@
         "axios": "^0.15.3",
         "bootstrap": "^4.0.0-alpha.6",
         "chinese-conv": "^1.0.1",
+        "html2canvas": "^1.0.0-rc.1",
+        "jspdf": "^1.5.3",
         "prop-types": "^15.5.4",
         "react": "^15.5.3",
         "react-addons-css-transition-group": "^15.4.2",
         "react-addons-transition-group": "^15.4.2",
         "react-dom": "^15.5.3",
         "react-router-dom": "^4.0.0",
-        "reactstrap": "^4.3.0",
-        "html2canvas": "^1.0.0-rc.1",
-        "jspdf": "^1.5.3"
+        "reactstrap": "^4.3.0"
     },
     "devDependencies": {
         "babel-core": "^6.24.0",
@@ -35,7 +35,7 @@
         "babel-preset-react": "^6.23.0",
         "css-loader": "^0.27.3",
         "style-loader": "^0.14.1",
-        "webpack": "^2.3.1",
+        "webpack": "^2.7.0",
         "webpack-dev-server": "^2.4.2"
     }
 }

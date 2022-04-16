@@ -83,7 +83,7 @@ export default class LyricsItem extends React.Component {
                         <i className={`fas fa-times-circle ${(tagSelectionDisplay) ? 'hover' : ''}`} data-box-type="reset" onClick={this.handleTagSwitch}></i>
                         {(!chord) ?
                             <div className={`intro is-empty ${(stage == 'print' || stage == 'prePrint') ? 'fade' : ''}`}>
-                                <p>點擊以新增和弦</p>
+                                <p>Click here to add a chord</p>
                                 <i className="fas fa-plus-circle"></i>
                             </div>
                             : ''}
@@ -113,7 +113,7 @@ export default class LyricsItem extends React.Component {
                     _content = (
                         <Label for={`content-img-${id}`} className={`image is-empty ${(stage == 'print' || stage == 'prePrint') ? 'fade' : ''}`} style={{ cursor: 'pointer' }}>
                             <i className={`fas fa-times-circle ${(tagSelectionDisplay) ? 'hover' : ''}`} data-box-type="reset" onClick={this.handleTagSwitch}></i>
-                            <p>點擊以新增圖片</p>
+                            <p>Click to add an image.</p>
                             <i className="fas fa-plus-circle"></i>
                             <Input type="file" name="file" id={`content-img-${id}`} className='d-none' onChange={this.handleImageUpload} />
                             <input type="text" name="text" placeholder={(stage == 'print' || stage == 'prePrint') ? '' : 'type here...'} onChange={this.handleUpdateContent} defaultValue={content.val} />
@@ -139,7 +139,7 @@ export default class LyricsItem extends React.Component {
                                     <FormGroup>
                                         <Row className='w-100'>
                                             <Col sm='8'>
-                                                <Input type="select" name="select" id={`chord-select-${id}`} defaultValue="自訂">
+                                                <Input type="select" name="select" id={`chord-select-${id}`} defaultValue="custom">
                                                     {optChord}
                                                 </Input>
                                             </Col>
@@ -377,7 +377,7 @@ export default class LyricsItem extends React.Component {
             this.state.chord = chordName;
         }).bind(this);
 
-        if(addChordName !== '自訂') {
+        if(addChordName !== 'custom') {
             if (this.state.chord !== addChordName) {
                 _addChord(addChordName);
                 this.props.chordAdd(addChordName, this.props.id);
