@@ -19,7 +19,7 @@
         "bootstrap": "^4.0.0-alpha.6",
         "chinese-conv": "^1.0.1",
         "html2canvas": "^1.0.0-rc.1",
-        "jspdf": "^1.5.3",
+        "jspdf": "^2.3.1",
         "prop-types": "^15.5.4",
         "react": "^15.5.3",
         "react-addons-css-transition-group": "^15.4.2",
