@@ -1,4 +1,5 @@
 {
+    "homepage": "https://jtchen0528.github.io/EasySheetProject",
     "name": "lab-react-weathermood",
     "version": "1.0.0",
     "description": "WeatherMood allows people to share moods under different weather conditions.",
@@ -10,7 +11,6 @@
         "deploy": "npm run build && gh-pages -d dist",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "homepage": "https://jtchen0528.github.io/EasySheetProject",
     "keywords": [],
     "author": "",
     "license": "MIT",
