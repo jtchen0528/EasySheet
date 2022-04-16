@@ -184,7 +184,7 @@ export default class ChordEditor extends React.Component {
         // display all ChordBox
         let chordBlock = [];
         if (this.props.stage == 'lyricsEdit') {
-            chordBlock = (<p style={{ color: "#000000a8", padding: "20px", display: ((this.props.stage === 'prePrint') || (this.props.stage === 'print')) ? 'none' : '' }}>{((this.props.stage === 'prePrint') || (this.props.stage === 'print')) ? '' : '＊這裡可以放按法、樂譜指示'}</p>);
+            chordBlock = (<p style={{ color: "#000000a8", padding: "20px", display: ((this.props.stage === 'prePrint') || (this.props.stage === 'print')) ? 'none' : '' }}>{((this.props.stage === 'prePrint') || (this.props.stage === 'print')) ? '' : '＊Fingering patterns, instructions or images'}</p>);
         } else {
             for (let i = 0; i < this.MAX_CHORD_BLOCK_NUM; i++) {
                 chordBlock.push(<ChordBlock
@@ -226,7 +226,7 @@ export default class ChordEditor extends React.Component {
                     <Row className='mb-2' style={{ height: `${strummingCollapsed ? '20px' : '60px'}`, transition: 'all .3s', opacity: `${(stage == 'prePrint' || stage == 'print')? 0 : 1}` }}>
                         <Col xs={{ size: 8, offset: 1 }} className='d-flex flex-column align-items-center justify-content-center' style={{ border: '0.125rem dashed', borderRadius: '0.5rem' }}>
                             <i className={`fas fa-chevron-circle-up ${strummingCollapsed ? 'rotate' : ''}`} onClick={this.handleEditPattern}></i>
-                            <span style={{ color: "#000000a8" }}>*這裡可以放刷法</span>
+                            <span style={{ color: "#000000a8" }}>＊Rythm and tempo here</span>
                         </Col>
                     </Row>
                 );
@@ -332,8 +332,8 @@ export default class ChordEditor extends React.Component {
                         <Container style={{ padding: 0}}>
                             <Row className={`${this.props.stage === "prePrint" || this.props.stage === "print"?"":''}`}>
                                 <Col className='text-center chord-editor-title'>
-                                    <h2 style={{paddingTop:"20px", fontFamily:(this.props.font==='正黑體')?'Noto Sans TC':(this.props.font==='新細明體')?'Noto Serif TC':(this.props.font==='標楷體')?'font1':''}}>{(song == '') ? '記得輸入歌名喔' : song}</h2>
-                                    <h5 style={{textAlign:"right", paddingRight:"50px", fontFamily:(this.props.font==='正黑體')?'Noto Sans TC':(this.props.font==='新細明體')?'Noto Serif TC':(this.props.font==='標楷體')?'font1':''}}>{(singer == '') ? ((singercn == '') ? '記得輸入歌手喔' : singercn) : singer}</h5>
+                                    <h2 style={{paddingTop:"20px", fontFamily:(this.props.font==='正黑體')?'Noto Sans TC':(this.props.font==='新細明體')?'Noto Serif TC':(this.props.font==='標楷體')?'font1':''}}>{(song == '') ? 'Song title missing' : song}</h2>
+                                    <h5 style={{textAlign:"right", paddingRight:"50px", fontFamily:(this.props.font==='正黑體')?'Noto Sans TC':(this.props.font==='新細明體')?'Noto Serif TC':(this.props.font==='標楷體')?'font1':''}}>{(singer == '') ? ((singercn == '') ? 'Singer Missing' : singercn) : singer}</h5>
                                 </Col>
                             </Row>
                             {rhythmBlock}
@@ -449,7 +449,8 @@ export default class ChordEditor extends React.Component {
     handleNextStage() {
         
         if(this.props.stage==='prePrint'){
-                generatePDF("toPrint");
+            document.body.style.zoom = "100%";
+            generatePDF("toPrint");
         }
         //為了讓進入下個state前可以輸出pdf
         setTimeout(() => {

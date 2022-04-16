@@ -68,6 +68,7 @@ export default class Today extends React.Component {
 
         this.state = {
             loading: false,
+            showErr: false,
             masking: true,
             stage: 'begin',
             template: [1, 0, 0],
@@ -178,7 +179,7 @@ export default class Today extends React.Component {
                                         </Col>
                                 </FormGroup>
                                 <FormGroup row>
-                                  <Label for="singer" sm={2} className={`today choose center`}>Singer</Label>
+                                  <Label for="singer" sm={2} className={`today choose center`}>Composer</Label>
                                         <Col sm={10}>
                                             <Input  name="singer" id="singer" placeholder="Singer or band"   getRef={el => {this.inputEl = el}} value={this.state.singer} onChange={this.handleSingerChange} />
                                         </Col>
@@ -213,6 +214,9 @@ export default class Today extends React.Component {
                             <Col xs="5" lg="3" className={`today choose center`}>
                                 <Button color="success" size="lg" onClick={this.onFormSubmit}>Next</Button>
                             </Col>
+                        </Row>
+                        <Row style={{'justify-content': 'center'}}>
+                            {this.state.showErr && <Alert color='danger' className='warning'>Please put in title and composer.</Alert>}
                         </Row>
                     </Container>
                 </div>
@@ -595,13 +599,21 @@ export default class Today extends React.Component {
             // }).catch(err => {
             //     console.error('[Error rquest lyrics] ', err);
             // });
-
-            this.setState({
-                lyrics: "(Edit your lyrics here.)",
-                songID: 1,
-                singercn: this.state.singer,
-                stage: (this.state.stage === 'started') ? 'Instruction1' : 'started'
-            });
+            console.log(this.state.singer)
+            if (this.state.singer == '' || this.state.song == '') {
+                this.setState({
+                    masking: false,
+                    loading: false,
+                    showErr: true
+                });
+            } else {
+                this.setState({
+                    lyrics: "(Edit your lyrics here.)\n(Press \"Enter\" at the end of this line)\n(Use Delete and Backspace to edit.)\n(Clear the message to start editing!)",
+                    songID: 1,
+                    singercn: this.state.singer,
+                    stage: (this.state.stage === 'started') ? 'Instruction1' : 'started'
+                });
+            }
 
         });
         setTimeout(() => {

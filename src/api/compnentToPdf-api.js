@@ -120,7 +120,7 @@ export function generatePDF(id){
   const input = document.getElementById(`${id}`);
   html2canvas(input,{
     x: 40,
-    y: 221.28,
+    y: 205.28,
     windowWidth: input.scrollWidth,
     windowHeight: input.scrollHeight,
     scale: 2,
