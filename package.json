@@ -16,7 +16,7 @@
     "license": "MIT",
     "dependencies": {
         "axios": "^0.15.3",
-        "bootstrap": "^4.0.0-alpha.6",
+        "bootstrap": "^4.6.1",
         "chinese-conv": "^1.0.1",
         "html2canvas": "^1.0.0-rc.1",
         "jspdf": "^1.5.3",
