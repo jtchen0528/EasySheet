@@ -256,25 +256,17 @@ export default class Today extends React.Component {
                     <Container style={{width:'80%'}}>
                         <div>
                         <Row>
-                            <Col xs='4'>
+                            <Col xs='12' sm='12' lg='4'>
                                 <img src="images/tutorial/1.gif" alt="" className="responsive"/>
+                                <p style={{textAlign: 'center', paddingTop:'10px', 'font-size': '1.4rem'}}>Press "Enter" at the end of the line will open a new lyric box for the line below. <br/> Each lyric box has a chords row on top.</p>
                             </Col>
-                            <Col xs='4'>
+                            <Col xs='12' sm='12' lg='4'>
                                 <img src="images/tutorial/2.gif" alt="" className="responsive"/>
+                                <p style={{textAlign: 'center', paddingTop:'10px', 'font-size': '1.4rem'}}>Put lines that has the same melody/chord in the same block in order to save space.</p>
                             </Col>
-                            <Col xs='4'>
+                            <Col xs='12' sm='12' lg='4'>
                                 <img src="images/tutorial/3.gif" alt="" className="responsive"/>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Press "Enter" at the end of the line will open a new lyric box for the line below. <br/> Each lyric box has a chords row on top.</p>
-                            </Col>
-                            <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Put lines that has the same melody/chord in the same block in order to save space.</p>
-                            </Col>
-                            <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Remove the repeated lines to make the music sheet succinct, simple type *2 or *3.</p>
+                                <p style={{textAlign: 'center', paddingTop:'10px', 'font-size': '1.4rem'}}>Remove the repeated lines to make the music sheet succinct, simple type *2 or *3.</p>
                             </Col>
                         </Row>
                         </div>
@@ -289,41 +281,23 @@ export default class Today extends React.Component {
                         <p>Tutorial: Compose chords.</p>
                     </div>
                     <Container style={{width:'80%'}}>
-                        <Row>
-                            <Col xs='1'></Col>
-                            <Col xs='4'>
-                                <Row>
-                                    <Col>
-                                        <img src="images/tutorial/4.gif" alt="" className="responsive" style={{maxHeight:'120px'}}/>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <p style={{textAlign: 'center', paddingTop:'10px'}}>Hover on the chord row, press "＋" to add a chord.</p>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <img src="images/tutorial/5.gif" alt="" className="responsive" style={{maxHeight:'120px'}}/>
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <p style={{textAlign: 'center', paddingTop:'10px'}}>Click copy, paste and delete bottoms on the rows to quickly edit the chords.</p>
-                                    </Col>
-                                </Row>
-                            </Col>
-                            <Col xs='2'></Col>
-                            <Col xs='4'>
-                                <Row>
-                                    <img src="images/tutorial/6.gif" alt="" className="responsive" style={{maxHeight:'250px'}}/>
-                                </Row>
-                                <Row>
-                                    <p style={{textAlign: 'center', paddingTop:'10px'}}>Click "Add" from the list to add your own chords and fingering patterns.</p>
-                                </Row>
-                            </Col>
-                            <Col xs='1'></Col>
-                        </Row>
+
+                        <div>
+                            <Row>
+                                <Col xs='12' sm='12' lg='4'>
+                                    <img src="images/tutorial/4.gif" alt="" className="responsive"/>
+                                    <p style={{textAlign: 'center', paddingTop:'10px', 'font-size': '1.4rem'}}>Hover on the chord row, press "＋" to add a chord.</p>
+                                </Col>
+                                <Col xs='12' sm='12' lg='4'>
+                                    <img src="images/tutorial/5.gif" alt="" className="responsive" style={{maxHeight:'120px'}}/>
+                                    <p style={{textAlign: 'center', paddingTop:'10px', 'font-size': '1.4rem'}}>Click copy, paste and delete bottoms on the rows to quickly edit the chords.</p>
+                                </Col>
+                                <Col xs='12' sm='12' lg='4'>
+                                    <img src="images/tutorial/6.gif" alt="" className="responsive"/>
+                                    <p style={{textAlign: 'center', paddingTop:'10px', 'font-size': '1.4rem'}}>Click "Add" from the list to add your own chords and fingering patterns.</p>
+                                </Col>
+                            </Row>
+                        </div>
                     </Container>
                     <div style={{textAlign:'center', paddingTop:'20px'}}>
                             <Button color="success" size="lg" onClick={this.handleInstruction} > Back </Button>
@@ -336,25 +310,17 @@ export default class Today extends React.Component {
                     </div>
                     <Container style={{width:'80%'}}>
                         <Row >
-                            <Col xs='4'>
+                            <Col xs='12' sm='12' lg='4'>
                                 <img src="images/tutorial/7.gif" alt="" className="responsive"/>
+                                <p style={{textAlign: 'center', paddingTop:'10px', 'font-size': '1.4rem'}}>Click in the arrows to modify the rythms.</p>
                             </Col>
-                            <Col xs='4'>
+                            <Col xs='12' sm='12' lg='4'>
                                 <img src="images/tutorial/8.gif" alt="" className="responsive"/>
+                                <p style={{textAlign: 'center', paddingTop:'10px', 'font-size': '1.4rem'}}>Add fingering patterns, instruction in text, or any images in the empty blocks.</p>
                             </Col>
-                            <Col xs='4'>
+                            <Col xs='12' sm='12' lg='4'>
                                 <img src="images/tutorial/1.gif" alt="" className="responsive"/>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Click in the arrows to modify the rythms.</p>
-                            </Col>
-                            <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Add fingering patterns, instruction in text, or any images in the empty blocks.</p>
-                            </Col>
-                            <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Click on the cross to delete the content in the block.</p>
+                                <p style={{textAlign: 'center', paddingTop:'10px', 'font-size': '1.4rem'}}>Click on the cross to delete the content in the block.</p>
                             </Col>
                         </Row>
                     </Container>
