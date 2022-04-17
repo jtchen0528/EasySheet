@@ -52,7 +52,7 @@ export default class Main extends React.Component {
     }
     
     handleLogo(){
-        window.location.href = 'https://zh-tw.facebook.com/';//`www.facebook.com`;
+        window.location.href = 'https://jtchen0528.github.io/EasySheet/';//`www.facebook.com`;
     }
 }
 

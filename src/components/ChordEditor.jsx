@@ -117,6 +117,7 @@ export default class ChordEditor extends React.Component {
         this.handleChordAdd = this.handleChordAdd.bind(this);
         this.handleChordRemove = this.handleChordRemove.bind(this);
         this.handleChordRemoveMultiple = this.handleChordRemoveMultiple.bind(this);
+        this.checkChordBlockContentOrder = this.checkChordBlockContentOrder.bind(this);
         this.handleRenderRhythm = this.handleRenderRhythm.bind(this);
         // 檢查和弦是否已經出現在右側欄位中
         this.chordhasSelected = this.chordhasSelected.bind(this);
@@ -321,9 +322,9 @@ export default class ChordEditor extends React.Component {
         return (
             <div>
                 <div className={`today choose title`}>
-                    <p style={{display:'inline', paddingLeft:'50px'}}>{(this.props.stage == 'lyricsEdit') ? 'Step 2: 編排歌詞' : (this.props.stage == 'chord') ? 'Step 3: 填選曲調' : (this.props.stage == 'chordEdit') ? 'Step 4: 編輯樂譜指示' : (this.props.stage == 'prePrint') ? 'Step 5: 確認預覽' :'' }</p>
+                    <p style={{display:'inline', paddingLeft:'50px'}}>{(this.props.stage == 'lyricsEdit') ? 'Step 2: Lyrics typesettings' : (this.props.stage == 'chord') ? 'Step 3: Compose chords' : (this.props.stage == 'chordEdit') ? 'Step 4: Add instructions' : (this.props.stage == 'prePrint') ? 'Step 5: Comfirm your EasySheet' :'' }</p>
                     <div style={{fontSize:'1.5rem', display: 'inline', paddingLeft:'50px'}}>
-                        <Button color="info" onClick={this.handleInstruction}>教學</Button>
+                        {(this.props.stage !== 'prePrint') && <Button color="info" onClick={this.handleInstruction}>Tutorials</Button>}
                     </div>
                 </div>
                 <Container className='form chord-editor' >
@@ -344,11 +345,11 @@ export default class ChordEditor extends React.Component {
                     <p><br/></p>
                     <Row >
                         <Col xs="5" lg="3" className={`choose center`}>
-                            <Button color="secondary" size="lg" onClick={this.handlePrevStage} style={{display: (this.props.stage === "lyricsEdit")?'none':''}}>上一步</Button>
+                            <Button color="secondary" size="lg" onClick={this.handlePrevStage} style={{display: (this.props.stage === "lyricsEdit")?'none':''}}>Back</Button>
                         </Col>
                         <Col xs="2" lg="6"></Col>
                         <Col xs="5" lg="3" className={`startbutton`}>
-                            <Button color="success" size="lg" onClick={this.handleNextStage} >{this.props.stage ==="print" ||this.props.stage ==="prePrint" ? "下載":"下一步"}</Button>
+                            <Button color="success" size="lg" onClick={this.handleNextStage} >{this.props.stage ==="print" ||this.props.stage ==="prePrint" ? "Download":"Next"}</Button>
                         </Col>
                     </Row>
                 </Container>
@@ -595,22 +596,24 @@ export default class ChordEditor extends React.Component {
     // 若 LyricsItem 移除chord
     handleChordRemove(chord) {
         var hasSelected = this.state.userSelectChord;
+        var currentChordBlockContent = this.state.chordBlockContent
         if (hasSelected.length) {
             var i = this.chordhasSelected(chord);
             if (i >= 0) {
                 // 若從畫面中消失，把這個chord從userSelectChord移除
-                if (!--hasSelected[i].times) {
-                    this.setState({
-                        userSelectChord: this.state.userSelectChord.filter((select, idx) => {
-                            return idx !== i;
-                        }),
-                        chordBlockContent: this.state.chordBlockContent.map((block) => {
-                            return (block.val !== chord) ? block : { type: 'chord', val: '' };
-                        })
-                    });
+                --hasSelected[i].times;
+                if (hasSelected[i].times == 0) {
+                    for (var k = 0; k < currentChordBlockContent.length; k++){
+                        if (currentChordBlockContent[k].val == chord) currentChordBlockContent[k] = { type: 'chord', val: '' }
+                    }
+                    hasSelected.splice(i, 1)
                 }
-                return;
             }
+            currentChordBlockContent = this.checkChordBlockContentOrder(currentChordBlockContent);
+            this.setState({
+                userSelectChord: hasSelected,
+                chordBlockContent: currentChordBlockContent  
+            })
         }
     }
 
@@ -630,11 +633,27 @@ export default class ChordEditor extends React.Component {
                     }
                 }
             }
+            currentChordBlockContent = this.checkChordBlockContentOrder(currentChordBlockContent);
             this.setState({
                 userSelectChord: hasSelected,
                 chordBlockContent: currentChordBlockContent  
             })
         }
+    }
+
+    checkChordBlockContentOrder(chordBlockContent) {
+        var tempChordBlockContent = new Array();
+        for (let i = 0; i < this.MAX_CHORD_BLOCK_NUM; i++) {
+            tempChordBlockContent.push({ type: 'chord', val: '' });
+        }
+        var j = 0;
+        for (var i = 0; i < chordBlockContent.length; i++) {
+            if (chordBlockContent[i].val !== '') {
+                tempChordBlockContent[j].val = chordBlockContent[i].val
+                j++;
+            }
+        }
+        return tempChordBlockContent
     }
 
     // 繪製刷法背景

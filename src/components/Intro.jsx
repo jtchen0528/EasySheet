@@ -173,26 +173,26 @@ export default class Today extends React.Component {
                                 <div className="rightchoose">
                                 <p className="today choose center">Song Info</p>
                                 <FormGroup row>
-                                  <Label for="songname" sm={2} className={`today choose center`}>Title</Label>
-                                        <Col sm={10}>
+                                  <Label for="songname" sm={3} className={`today choose center`}>Title</Label>
+                                        <Col sm={9} style={{'align-self': 'center'}}>
                                             <Input  name="songname" id="songname" placeholder="Title of the song"   getRef={el => {this.inputEl = el}} value={this.state.song} onChange={this.handleSongChange}/>
                                         </Col>
                                 </FormGroup>
                                 <FormGroup row>
-                                  <Label for="singer" sm={2} className={`today choose center`}>Composer</Label>
-                                        <Col sm={10}>
+                                  <Label for="singer" sm={3} className={`today choose center`}>Composer</Label>
+                                        <Col sm={9} style={{'align-self': 'center'}}>
                                             <Input  name="singer" id="singer" placeholder="Singer or band"   getRef={el => {this.inputEl = el}} value={this.state.singer} onChange={this.handleSingerChange} />
                                         </Col>
                                 </FormGroup>
                                 <FormGroup row>
-                                  <Label for="color" sm={2} className={`today choose center`}>Color</Label>
-                                        <Col sm={10}>
+                                  <Label for="color" sm={3} className={`today choose center`}>Color</Label>
+                                        <Col sm={9} style={{'align-self': 'center'}}>
                                             <Input  type="color" name="color" id="singer" placeholder="Color of the music sheet"  getRef={el => {this.inputEl = el}} value={this.state.color} onChange={this.handleColorChange} className={`today choose cursor`}/>
                                         </Col>
                                 </FormGroup>
                                 <FormGroup row>
-                                  <Label for="font" sm={2} className={`today choose center`}>Font</Label>
-                                        <Col sm={10}>
+                                  <Label for="font" sm={3} className={`today choose center`}>Font</Label>
+                                        <Col sm={9} style={{'align-self': 'center'}}>
                                             <Input  type="select" name="font" id="font" defaultValue="正黑體"  getRef={el => {this.inputEl = el}} value={this.state.font} onChange={this.handleFontChange} className={`today choose cursor`}>
                                                 <option>標楷體</option>
                                                 <option>新細明體</option>
@@ -326,13 +326,13 @@ export default class Today extends React.Component {
                         </Row>
                     </Container>
                     <div style={{textAlign:'center', paddingTop:'20px'}}>
-                            <Button color="success" size="lg" onClick={this.handleInstruction} > 繼續編輯 </Button>
+                            <Button color="success" size="lg" onClick={this.handleInstruction} > Back </Button>
                     </div>
                 </div>
                 
                 <div className={`${(this.state.stage === 'Instruction3') ? '' : 'd-none'}`}>
                     <div className={`today choose title`}>
-                        <p>編輯教學：編輯樂譜指示</p>
+                        <p>Tutorial: Add instructions on the sheet</p>
                     </div>
                     <Container style={{width:'80%'}}>
                         <Row >
@@ -348,18 +348,18 @@ export default class Today extends React.Component {
                         </Row>
                         <Row>
                             <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>用左鍵點擊來更動刷法的標示。</p>
+                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Click in the arrows to modify the rythms.</p>
                             </Col>
                             <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>在旁邊新增按法、文字、圖片。</p>
+                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Add fingering patterns, instruction in text, or any images in the empty blocks.</p>
                             </Col>
                             <Col xs='4'>
-                                <p style={{textAlign: 'center', paddingTop:'10px'}}>刪除格子。</p>
+                                <p style={{textAlign: 'center', paddingTop:'10px'}}>Click on the cross to delete the content in the block.</p>
                             </Col>
                         </Row>
                     </Container>
                     <div style={{textAlign:'center', paddingTop:'20px'}}>
-                            <Button color="success" size="lg" onClick={this.handleInstruction} > 繼續編輯 </Button>
+                            <Button color="success" size="lg" onClick={this.handleInstruction} > Back </Button>
                     </div>
                 </div>
 
@@ -371,12 +371,12 @@ export default class Today extends React.Component {
                  </div>
                  <div className={`${(this.state.stage === 'print') ? '' : 'd-none'}`}>
                     <div className={`today welcometext`}>
-                        <p>感謝您使用EasySheet！<br/>快分享給大家吧！</p>
+                        <p>Thank you for using EasySheet!<br/>Share your music sheet to your friends!</p>
                     </div>
                     <div className={`today startbutton`}>
-                        <Button color="success" size="lg" className='mx-2' onClick={this.handleStart} > 回到首頁 </Button>
-                        <Button color="success" size="lg" className='mx-2' onClick={this.handleSharePreview} style={{display:''}} > SharePreview </Button>
-                        <Button color="success" size="lg" className='mx-2' onClick={this.handleShareSheets} style={{display:''}} > ShareSheets </Button>
+                        <Button color="success" size="lg" className='mx-2' onClick={this.handleStart} > Back to Homepage </Button>
+                        {/* <Button color="success" size="lg" className='mx-2' onClick={this.handleSharePreview} style={{display:''}} > SharePreview </Button> */}
+                        {/* <Button color="success" size="lg" className='mx-2' onClick={this.handleShareSheets} style={{display:''}} > ShareSheets </Button> */}
                         <br/>
                     </div>
                 </div>
@@ -385,7 +385,7 @@ export default class Today extends React.Component {
                         <iframe src="images/test.pdf" frameborder="0" height="842px" width="75%"></iframe>
                     </div>
                     <div className={`today startbutton`}>
-                        <Button color="success" size="lg" onClick={this.handleStart} > 回到首頁 </Button>
+                        <Button color="success" size="lg" onClick={this.handleStart} > Back to Homepage </Button>
                         <br/>
                     </div>
                 </div>
@@ -488,6 +488,7 @@ export default class Today extends React.Component {
                 stage: 'started'
             });
         }else if(this.state.stage ==='print'){
+            window.location.href = 'https://jtchen0528.github.io/EasySheet/';//`www.facebook.com`;
             this.setState({
                 stage: 'begin'
             });
@@ -495,7 +496,6 @@ export default class Today extends React.Component {
             this.setState({
                 stage: 'begin'
             });
-            console.log(this.state.sheet);
         }
     }
 

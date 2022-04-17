@@ -250,7 +250,7 @@ export default class SharePreview extends React.Component {
         return (
             <div>
                 <div className={`today choose title`}>
-                    <p>{(this.props.stage == 'lyricsEdit') ? 'Step 2: 編排歌詞' : (this.props.stage == 'chord') ? 'Step 3: 填選曲調' : (this.props.stage == 'chordEdit') ? 'Step 4: 編輯樂譜指示' : (this.props.stage == 'prePrint') ? 'Step 5: 確認預覽' :'' }</p>
+                    <p>{(this.props.stage == 'lyricsEdit') ? 'Step 2: Lyrics typesettings' : (this.props.stage == 'chord') ? 'Step 3: Compose chords' : (this.props.stage == 'chordEdit') ? 'Step 4: Add instructions' : (this.props.stage == 'prePrint') ? 'Step 5: Comfirm your EasySheet' :'' }</p>
                 </div>
             <div style={{display:(this.props.template[0]===1)?'':'none'}}>
             <Container className='form chord-editor' >
