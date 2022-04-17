@@ -1,8 +1,8 @@
 {
-    "homepage": "https://jtchen0528.github.io/EasySheetProject",
-    "name": "lab-react-weathermood",
+    "homepage": "https://jtchen0528.github.io/EasySheet",
+    "name": "EasySheet",
     "version": "1.0.0",
-    "description": "WeatherMood allows people to share moods under different weather conditions.",
+    "description": "A fast, simple online guitar sheet editor.",
     "main": "src/index.jsx",
     "scripts": {
         "build": "webpack -p",
@@ -12,7 +12,7 @@
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
-    "author": "",
+    "author": "Jhao-Ting Chen (jtchen0528)",
     "license": "MIT",
     "dependencies": {
         "axios": "^0.15.3",
