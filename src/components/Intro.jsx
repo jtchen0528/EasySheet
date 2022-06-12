@@ -129,27 +129,30 @@ export default class Today extends React.Component {
                         <br />
                     </div>
                     <div>
+                        <p  style={{'text-align-last': 'center', 'font-size': '1.5rem', 'padding': '40px 10px 10px 10px'}}>Consider starring EasySheet @ <a href="https://github.com/jtchen0528/EasySheet">jtchen0528/EasySheet</a>!</p>
+                    </div>
+                    <div>
                         <p style={{'text-align-last': 'center', 'font-size': '1.5rem', 'padding': '40px 10px 10px 10px'}}>Check out some of my music sheet below!<br />Made with EashSheet!</p>
 
                         <Container style={{padding: '20px'}}>
                             <Row>
                                 <Col xs="6" sm="4" md="3" lg="2" style={{'padding': '5px'}}>
-                                    <a  href="https://jtchen0528.github.io/EasySheet/dist/images/demo/1.jpg" ><img src="images/demo/1.jpg "alt="" className="responsive"/></a>
+                                    <a  href="https://jtchen0528.github.io/blog/assets/files/%E5%90%89%E4%BB%96%E8%AD%9C_%E5%AE%89%E4%B9%9D.jpg" ><img src="images/demo/1.jpg "alt="" className="responsive"/></a>
                                 </Col>
                                 <Col xs="6" sm="4" md="3" lg="2" style={{'padding': '5px'}}>
-                                    <a  href="https://jtchen0528.github.io/EasySheet/dist/images/demo/2.jpg" ><img src="images/demo/2.jpg" alt="" className="responsive"/></a>
+                                    <a  href="https://jtchen0528.github.io/blog/assets/files/%E5%90%89%E4%BB%96%E8%AD%9C_%E9%82%A3%E4%BA%9B%E5%A4%B1%E7%9C%A0%E7%9A%84%E5%A4%9C%E8%88%87%E9%9B%A3%E4%BB%A5%E5%BF%98%E6%87%B7%E7%9A%84%E4%BA%8B.jpg" ><img src="images/demo/2.jpg" alt="" className="responsive"/></a>
                                 </Col>
                                 <Col xs="6" sm="4" md="3" lg="2" style={{'padding': '5px'}}>
-                                    <a  href="https://jtchen0528.github.io/EasySheet/dist/images/demo/3.jpg" ><img src="images/demo/3.jpg" alt="" className="responsive"/></a>
+                                    <a  href="https://jtchen0528.github.io/blog/assets/files/%E5%90%89%E4%BB%96%E8%AD%9C_%E7%B4%85.jpg" ><img src="images/demo/3.jpg" alt="" className="responsive"/></a>
                                 </Col>
                                 <Col xs="6" sm="4" md="3" lg="2" style={{'padding': '5px'}}>
-                                    <a  href="https://jtchen0528.github.io/EasySheet/dist/images/demo/4.jpg" ><img src="images/demo/4.jpg" alt="" className="responsive"/></a>
+                                    <a  href="https://jtchen0528.github.io/blog/assets/files/%E5%90%89%E4%BB%96%E8%AD%9C_%E5%B8%B6%E6%88%91%E5%8E%BB%E6%89%BE%E5%A4%9C%E7%94%9F%E6%B4%BB.jpg" ><img src="images/demo/4.jpg" alt="" className="responsive"/></a>
                                 </Col>
                                 <Col xs="6" sm="4" md="3" lg="2" style={{'padding': '5px'}}>
-                                    <a  href="https://jtchen0528.github.io/EasySheet/dist/images/demo/5.jpg" ><img src="images/demo/5.jpg" alt="" className="responsive"/></a>
+                                    <a  href="https://jtchen0528.github.io/blog/assets/files/%E5%90%89%E4%BB%96%E8%AD%9C_%E6%B7%92%E7%BE%8E%E5%9C%B0.jpg" ><img src="images/demo/5.jpg" alt="" className="responsive"/></a>
                                 </Col>
                                 <Col xs="6" sm="4" md="3" lg="2" style={{'padding': '5px'}}>
-                                    <a  href="https://jtchen0528.github.io/EasySheet/dist/images/demo/6.jpg" ><img src="images/demo/6.jpg" alt="" className="responsive"/></a>
+                                    <a  href="https://jtchen0528.github.io/blog/assets/files/%E5%90%89%E4%BB%96%E8%AD%9C_%E9%A9%95%E5%82%B2%E7%9A%84%E9%AF%A8%E9%AD%9A.jpg" ><img src="images/demo/6.jpg" alt="" className="responsive"/></a>
                                 </Col>
                             </Row>
                         </Container>
